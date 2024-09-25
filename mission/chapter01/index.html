@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <!-- 외부 CSS 파일 연결 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>해야 할 일 미루지 말고 하자</h1>
+        <input type="text" id="taskInput" placeholder="해야 할 일을 입력하세요" />
+
+        <div class="task-lists">
+            <!-- 왼쪽: 해야 할 일 목록 -->
+            <div class="task-list">
+                <h2>해야 할 일</h2>
+                <ul id="toDoList"></ul>
+            </div>
+
+            <!-- 오른쪽: 해낸 일 목록 -->
+            <div class="task-list">
+                <h2>해낸 일</h2>
+                <ul id="doneList"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- JavaScript 파일 불러오기 -->
+</body>
+</html>

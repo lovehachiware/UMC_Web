@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.task-lists {
+    display: flex;
+    justify-content: space-between;
+}
+
+.task-list {
+    width: 48%;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    padding: 10px;
+    border-bottom: 5px solid #cfcece;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.completed {
+    /* 수정사항 생길시 수정 (완료 사항에 대해) */
+}
+
+button {
+    margin-left: 10px;
+    padding: 5px;
+}
