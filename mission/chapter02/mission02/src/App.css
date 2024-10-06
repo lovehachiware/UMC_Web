@@ -1,0 +1,65 @@
+body, html, .App {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: white;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* 영화 목록 컨테이너: flex-wrap을 사용하여 여러 줄에 걸쳐 표시 */
+.movie-list {
+  display: flex;
+  flex-wrap: wrap; /* 여러 줄에 걸쳐 배치될 수 있도록 설정 */
+  justify-content: center;
+  padding: 20px;
+}
+
+/* 영화 카드: 한 줄에 10개씩 배치되도록 너비 설정 */
+.movie-card {
+  position: relative;
+  width: calc(10% - 20px); /* 한 줄에 10개가 배치되도록 너비 설정 (10% - 간격) */
+  margin: 10px; /* 카드 간의 간격 */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  cursor: pointer;
+}
+
+.movie-card:hover {
+  transform: scale(1.05);
+}
+
+.movie-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.movie-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* 이미지 비율을 유지하며 카드에 맞게 조정 */
+}
+
+/* 마우스가 올려졌을 때 나타나는 검은색 반투명 오버레이 */
+.movie-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* 검은색 반투명 배경 */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.movie-card:hover .movie-overlay {
+  opacity: 1; /* 마우스 올렸을 때 오버레이 표시 */
+}
