@@ -1,9 +1,17 @@
-import React from 'react';
-import { MoviesContainer, CategoryTitle, MovieGrid, MovieCard, MovieImagePlaceholder } from './movieslist.style';
-import nowplaying from '../image/nowplaying.jpeg';  // 소문자
-import popular from '../image/popular.jpeg';
-import toprated from '../image/toprated.jpeg';
-import upcoming from '../image/upcoming.jpg';
+import React from "react";
+import {
+  MoviesContainer,
+  CategoryTitle,
+  MovieGrid,
+  MovieCard,
+  MovieImagePlaceholder,
+} from "./movieslist.style";
+import nowplaying from "../image/nowplaying.jpeg"; // 소문자
+import popular from "../image/popular.jpeg";
+import toprated from "../image/toprated.jpeg";
+import upcoming from "../image/upcoming.jpg";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 
 const Movieslist = () => {
   return (
@@ -11,19 +19,25 @@ const Movieslist = () => {
       <CategoryTitle>카테고리</CategoryTitle>
       <MovieGrid>
         <MovieCard>
-          <MovieImagePlaceholder src={nowplaying} alt="Now Playing" />  {/* 소문자 사용 */}
+          <Link to={"/movies/now-playing"}>
+            <MovieImagePlaceholder src={nowplaying} alt="Now Playing" />
+          </Link>
+          {/* 소문자 사용 */}
           현재 상영중인
         </MovieCard>
         <MovieCard>
-          <MovieImagePlaceholder src={popular} alt="Popular" />  {/* 소문자 사용 */}
+          <MovieImagePlaceholder src={popular} alt="Popular" />{" "}
+          {/* 소문자 사용 */}
           인기있는
         </MovieCard>
         <MovieCard>
-          <MovieImagePlaceholder src={toprated} alt="Top Rated" />  {/* 소문자 사용 */}
+          <MovieImagePlaceholder src={toprated} alt="Top Rated" />{" "}
+          {/* 소문자 사용 */}
           높은 평가를 받은
         </MovieCard>
         <MovieCard>
-          <MovieImagePlaceholder src={upcoming} alt="Upcoming" />  {/* 소문자 사용 */}
+          <MovieImagePlaceholder src={upcoming} alt="Upcoming" />{" "}
+          {/* 소문자 사용 */}
           개봉 예정중인
         </MovieCard>
       </MovieGrid>
@@ -32,3 +46,7 @@ const Movieslist = () => {
 };
 
 export default Movieslist;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;

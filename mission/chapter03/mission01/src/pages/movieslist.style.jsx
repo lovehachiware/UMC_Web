@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const MoviesContainer = styled.div`
   padding: 20px;
@@ -22,7 +22,7 @@ export const MovieCard = styled.div`
   color: white;
 `;
 
-export const MovieImagePlaceholder = styled.div`
+export const MovieImagePlaceholder = styled.img`
   width: 100%;
   height: 150px;
   background-color: #34495e;
