@@ -26,17 +26,23 @@ const Movieslist = () => {
           현재 상영중인
         </MovieCard>
         <MovieCard>
-          <MovieImagePlaceholder src={popular} alt="Popular" />{" "}
+          <Link to={"/movies/popular"}>
+            <MovieImagePlaceholder src={popular} alt="Popular" />{" "}
+          </Link>
           {/* 소문자 사용 */}
           인기있는
         </MovieCard>
         <MovieCard>
-          <MovieImagePlaceholder src={toprated} alt="Top Rated" />{" "}
+          <Link to={"/movies/top-rated"}>
+            <MovieImagePlaceholder src={toprated} alt="Top Rated" />{" "}
+          </Link>
           {/* 소문자 사용 */}
           높은 평가를 받은
         </MovieCard>
         <MovieCard>
-          <MovieImagePlaceholder src={upcoming} alt="Upcoming" />{" "}
+          <Link to={"/movies/upcoming"}>
+            <MovieImagePlaceholder src={upcoming} alt="Upcoming" />{" "}
+          </Link>
           {/* 소문자 사용 */}
           개봉 예정중인
         </MovieCard>
