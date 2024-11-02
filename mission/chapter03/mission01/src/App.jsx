@@ -10,6 +10,7 @@ import NowPlaying from "./pages/NowPlaying";
 import Popluar from "./pages/Popular";
 import TopRated from "./pages/toprated";
 import Upcoming from "./pages/Upcoming";
+import MovieDetail from "./pages/DetailPage/MovieDetail";
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="popular" element={<Popluar />} />
             <Route path="top-rated" element={<TopRated />} />
             <Route path="upcoming" element={<Upcoming />} />
+            <Route path="/movies/:movieId" element={<MovieDetail />} />
           </Route>
           {/* 회원가입 페이지 라우팅 */}
         </Route>
