@@ -1,8 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import MoviesPage from "./pages/moviespage";
 import SearchPage from "./pages/search";
-import LoginPage from "./pages/login"; // 로그인 페이지 import
+import MoviesPage from './pages/MoviesPage';
+import LoginPage from "./components/login/login.jsx"; // 로그인 페이지 import
 import SignupPage from "./pages/signup"; // 회원가입 페이지 import
 import RootLayout from "./layout/root-layout";
 import Home from "./pages/home";
