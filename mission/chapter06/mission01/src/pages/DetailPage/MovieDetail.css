@@ -1,0 +1,65 @@
+.MovieDetailContainer {
+    display: flex;                    /* 내부 요소들을 flexbox로 정렬 */
+    flex-direction: column;           /* 내부 요소들을 세로 방향으로 정렬 */
+    color: white;                     /* 텍스트 색상을 흰색으로 설정 */
+    padding: 20px;                    /* 전체 컨테이너의 내부 여백을 20px로 설정 */
+    background-color: #000;           /* 배경 색상을 검정색으로 설정 */
+    min-height: 100vh;                /* 화면 전체 높이를 채우도록 설정 */
+  }
+  
+  .MovieDetailHeader {
+    width: 100%;                      /* 전체 너비를 100%로 설정 */
+    max-width: 1200px;                /* 최대 너비를 1200px로 제한 */
+    position: relative;               /* 내부 요소의 절대 위치 설정을 위해 상대 위치 지정 */
+    border-radius: 10px;              /* 박스 모서리를 둥글게 10px로 설정 */
+    overflow: hidden;                 /* 경계를 넘는 콘텐츠를 숨김 처리 */
+    margin-bottom: 20px;              /* 하단 여백을 20px로 설정 */
+    display: flex;                    /* 내부 요소들을 flexbox로 정렬 */
+  }
+  
+  .MovieBackground {
+    width: 100%;                      /* 배경 이미지의 너비를 100%로 설정 */
+    height: 400px;                    /* 배경 이미지의 높이를 400px로 설정 */
+    object-fit: cover;                /* 이미지를 요소의 크기에 맞게 잘라서 표시 */
+    position: absolute;               /* 절대 위치로 설정하여 부모 요소 내부에 배치 */
+    top: 0;                           /* 상단을 부모 요소의 상단에 맞춤 */
+    left: 0;                          /* 왼쪽을 부모 요소의 왼쪽에 맞춤 */
+    z-index: 1;                       /* 다른 요소보다 뒤쪽에 배치하기 위해 낮은 z-index 설정 */
+  }
+  
+  .MovieDetailContent {
+    position: relative;               /* 절대 위치로 배치된 배경 위에 쌓이도록 상대 위치 지정 */
+    z-index: 2;                       /* 배경 이미지 위에 쌓이도록 z-index 설정 */
+    padding: 20px;                    /* 내부 여백을 20px로 설정 */
+    border-radius: 10px;              /* 박스 모서리를 둥글게 10px로 설정 */
+    width: 80%;                       /* 박스 너비를 전체의 80%로 설정 */
+  }
+  
+  .MovieInfo {
+    margin-top: 20px;                 /* 상단 여백을 20px로 설정 */
+  }
+  
+  .MovieCast {
+    display: flex;                    /* 출연진을 flexbox로 정렬 */
+    flex-wrap: wrap;                  /* 여러 줄로 감싸도록 설정 */
+    gap: 15px;                        /* 각 출연진 사이에 15px 간격 추가 */
+  }
+  
+  .CastMember {
+    text-align: center;               /* 텍스트를 중앙 정렬 */
+    width: 100px;                     /* 각 출연진 박스의 너비를 100px로 설정 */
+  }
+  
+  .CastPhoto {
+    width: 80px;                      /* 출연진 사진의 너비를 80px로 설정 */
+    height: 80px;                     /* 출연진 사진의 높이를 80px로 설정 */
+    border-radius: 50%;               /* 원형으로 표시하기 위해 테두리를 50% 둥글게 설정 */
+    object-fit: cover;                /* 이미지가 원형에 맞게 잘라서 표시되도록 설정 */
+    border: 2px solid white;          /* 흰색 테두리 두께를 2px로 설정 */
+  }
+  
+  .CastName {
+    font-size: 14px;                  /* 출연진 이름의 글꼴 크기를 14px로 설정 */
+    margin-top: 5px;                  /* 상단 여백을 5px로 설정 */
+  }
+  

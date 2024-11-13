@@ -4,7 +4,7 @@ import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import './login.css';
 
-const SignIn = () => {
+const Login = () => {
   const schema = yup.object().shape({
     email: yup
       .string()
