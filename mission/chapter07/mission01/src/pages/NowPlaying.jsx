@@ -1,42 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import { useGetMovies } from "../hooks/queries/useGetMovies.js";
 import Card from "@/components/card/card.jsx";
 import * as S from "@/styles/movies.style.js";
-import CardListSkeleton from "../components/card/Skeleton/card-list-skeleton.jsx";
-import { useInView } from "react-intersection-observer";
-import { BeatLoader } from "react-spinners";
 
 const NowPlaying = () => {
-  const { ref, inView } = useInView({ threshold: 0 });
+  const [page, setPage] = useState(1);
 
-  const {
-    data,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-    isLoading,
-    isError,
-  } = useInfiniteQuery({
-    queryFn: ({ pageParam = 1 }) =>
-      useGetMovies({ category: "now_playing", pageParam }),
-    queryKey: ["movies", "now_playing"],
-    getNextPageParam: (lastPage) => {
-      return lastPage.page < lastPage.total_pages ? lastPage.page + 1 : undefined;
-    },
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["movies", "now_playing", page],
+    queryFn: () => useGetMovies({ category: "now_playing", pageParam: page }),
+    keepPreviousData: true,
   });
-
-  React.useEffect(() => {
-    if (inView && hasNextPage) {
-      fetchNextPage();
-    }
-  }, [inView, hasNextPage, fetchNextPage]);
 
   if (isLoading) {
     return (
       <S.MovieGridContainer>
-        <CardListSkeleton number={20} />
+        <p>Loading...</p>
       </S.MovieGridContainer>
     );
   }
@@ -44,15 +25,15 @@ const NowPlaying = () => {
   if (isError) {
     return (
       <div>
-        <h1 style={{ color: "red" }}>오류 발생햇어용 삐용삐용!!!</h1>
+        <h1 style={{ color: "red" }}>오류 발생!</h1>
       </div>
     );
   }
 
   return (
-    <S.CardList>
-      {data?.pages.map((page) =>
-        page.results.map((movie) => (
+    <div>
+      <S.CardList>
+        {data?.results.map((movie) => (
           <Link
             to={`/movies/${movie.id}`}
             key={movie.id}
@@ -60,15 +41,41 @@ const NowPlaying = () => {
           >
             <Card movie={movie} />
           </Link>
-        ))
-      )}
+        ))}
+      </S.CardList>
 
-      {isFetchingNextPage && <CardListSkeleton number={20} />}
-
-      <div ref={ref} style={{ textAlign: "center", padding: "10px 0" }}>
-        {isFetchingNextPage && <BeatLoader color="#d51a81" />}
+      <div style={{ display: "flex", justifyContent: "center", marginTop: "20px" }}>
+        <button
+          onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+          disabled={page === 1}
+          style={{
+            marginRight: '10px',
+            padding: '10px 20px',
+            backgroundColor: page === 1 ? '#555' : '#d51a81',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: page === 1 ? 'not-allowed' : 'pointer',
+          }}
+        >
+          이전 페이지
+        </button>
+        <button
+          onClick={() => setPage((prev) => prev + 1)}
+          disabled={page === data.total_pages}
+          style={{
+            padding: '10px 20px',
+            backgroundColor: page === data.total_pages ? '#555' : '#d51a81',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: page === data.total_pages ? 'not-allowed' : 'pointer',
+          }}
+        >
+          다음 페이지
+        </button>
       </div>
-    </S.CardList>
+    </div>
   );
 };
 

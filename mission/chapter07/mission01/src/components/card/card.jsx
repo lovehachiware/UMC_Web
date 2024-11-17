@@ -9,7 +9,7 @@ const Card = ({ movie }) => {
         alt={movie.title} 
       />
       <S.MovieTitle>{movie.title}</S.MovieTitle>
-      <S.MovieOverview>{movie.overview}</S.MovieOverview>
+      <S.MovieReleaseDate>{movie.release_date}</S.MovieReleaseDate>
     </S.CardContainer>
   );
 };

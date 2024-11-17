@@ -1,42 +1,18 @@
 import styled from 'styled-components';
 
 export const CardList = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   gap: 20px;
   padding: 20px;
 `;
 
-export const MovieCard = styled.div`
-  width: 200px;
-  background-color: #2c3e50;
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
-  color: white;
-`;
-
-export const MoviePoster = styled.img`
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-`;
-
-export const MovieTitle = styled.h3`
-  margin: 10px 0;
-  font-size: 18px;
-`;
-
-export const MovieOverview = styled.p`
-  font-size: 14px;
-  padding: 0 10px 10px;
-`;
-
-const MovieGridContainer = styled.div`
-  margin-top: 30px;
+export const MovieGridContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* 그리드 카드 최소 너비 */
+  gap: 10px; /* 카드 간의 간격 */
+  padding: 10px; /* 전체 그리드의 여백 */
+  background-color: #141414;
+  min-height: calc(100vh - 100px); /* 페이지 높이 고정 */
+  margin: 0 auto; /* 가운데 정렬 */
 `;
-
-export { MovieGridContainer };
